@@ -13,11 +13,10 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text("Login"),
+          child: Text("Login2"),
           onPressed: () {
             //Navigator.pushNamed(context, '/login');
             Navigator.pushNamed(context, '/list');
-
           },
         ),
       ),
