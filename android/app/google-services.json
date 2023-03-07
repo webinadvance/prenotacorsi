@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "586633050644",
+    "project_id": "prenotacorsi-d69f6",
+    "storage_bucket": "prenotacorsi-d69f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586633050644:android:d711bc6bb3c0f95c6fc501",
+        "android_client_info": {
+          "package_name": "com.mycompany.prenotacorsi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586633050644-0brt8src6nauuo6dapjqn1ncq87p43rm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.prenotacorsi",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "586633050644-iu7iink9u7ci0us2iq7rajsqvd44ofm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu-Oe8DmkAFtEbCFVXllRHiW9t95wIZJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586633050644-cbocqhtrbd3fbnvaa12ept598g3s824m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "586633050644-sv6d5qls4vvkrslqac7135g1ajc9o4il.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.prenotacorsi"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:586633050644:android:efc747823cc10fc56fc501",
+        "android_client_info": {
+          "package_name": "com.prenotacorsi.prenotacorsi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "586633050644-iu7iink9u7ci0us2iq7rajsqvd44ofm7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu-Oe8DmkAFtEbCFVXllRHiW9t95wIZJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "586633050644-cbocqhtrbd3fbnvaa12ept598g3s824m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "586633050644-sv6d5qls4vvkrslqac7135g1ajc9o4il.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.prenotacorsi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
