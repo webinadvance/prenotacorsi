@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:prenotacorsi/store.dart';
+import 'package:prenotacorsi/widgets/list.dart';
 import 'package:prenotacorsi/widgets/login_page.dart';
 import 'package:redux/redux.dart';
 import 'firebase_options.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         home: const HomePage(title: 'Flutter Demo Home Page'),
         routes: {
           '/login': (context) => LoginPage(),
+          '/list': (context) => MyListWidget(),
         },
       ),
     );
