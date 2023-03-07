@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
+import '../state.dart';
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPage extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn(
     clientId:
@@ -34,13 +32,27 @@ class _LoginPageState extends State<LoginPage> {
         title: Text("Login"),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text("Login with Google"),
-          onPressed: () {
-            _signInWithGoogle().then((UserCredential userCredential) {
-              print(userCredential);
-            }).catchError((e) => print(e));
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            StoreConnector<AppState, User?>(
+              converter: (store) => store.state.user,
+              builder: (context, user) => user != null
+                  ? Text("Logged in as ${user.displayName}")
+                  : ElevatedButton(
+                      child: Text("Login with Google"),
+                      onPressed: () {
+                        _signInWithGoogle().then(
+                          (UserCredential userCredential) {
+                            print(userCredential.user);
+                            StoreProvider.of<AppState>(context)
+                                .dispatch(SetUserAction(userCredential.user));
+                          },
+                        ).catchError((e) => print(e));
+                      },
+                    ),
+            ),
+          ],
         ),
       ),
     );

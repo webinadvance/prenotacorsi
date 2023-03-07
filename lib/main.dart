@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:prenotacorsi/state.dart';
 import 'package:prenotacorsi/widgets/LoginPage.dart';
+import 'package:redux/redux.dart';
 import 'firebase_options.dart';
 
 import 'widgets/MyHomePage.dart';
@@ -23,20 +26,25 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  final store = Store<AppState>(
+    appReducer,
+    initialState: AppState.initialState(),
+  );
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return StoreProvider(
+      store: store,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        routes: {
+          '/login': (context) => LoginPage(),
+        },
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      routes: {
-        '/login': (context) => LoginPage(),
-      },
     );
   }
 }
