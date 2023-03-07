@@ -16,8 +16,11 @@ class HomePage extends StatelessWidget {
           child: Text("Login2"),
           onPressed: () {
             //Navigator.pushNamed(context, '/login');
-            Navigator.pushNamed(context, '/list');
+            Navigator.pushNamed(context, '/datatable');
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+          ),
         ),
       ),
     );
