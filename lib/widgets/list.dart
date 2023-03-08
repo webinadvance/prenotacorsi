@@ -52,7 +52,7 @@ class _MyListWidgetState extends State<MyListWidget> {
   Widget build(BuildContext context) {
     return AuthenticatedWidget(
       child: MainScaffold(
-        title: "list",
+        title: "Lista",
         body: Material(
           child: ListView.builder(
             itemCount: _data.length,
@@ -86,11 +86,13 @@ class _MyListWidgetState extends State<MyListWidget> {
                               children: [
                                 Text(
                                   _data[index]['corso'],
-                                  style: Theme.of(context).textTheme.titleMedium,
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                                 Text(
                                   _data[index]['trainer'],
-                                  style: Theme.of(context).textTheme.titleMedium,
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                               ],
                             ),

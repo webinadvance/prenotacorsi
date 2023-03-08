@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainScaffold(
       title: "prenotacorsi.com",
+      isDrawerVisible: true,
       body: Center(
         child: ElevatedButton(
           child: Text("list"),
