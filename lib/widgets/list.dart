@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'auth_widget.dart';
 import 'main_scaffold.dart';
 
+import 'package:intl/intl.dart';
+
 class MyListWidget extends StatefulWidget {
   @override
   _MyListWidgetState createState() => _MyListWidgetState();
@@ -13,22 +15,27 @@ class MyListWidget extends StatefulWidget {
 class _MyListWidgetState extends State<MyListWidget> {
   List<dynamic> _data = [];
 
-/*  Future<List<dynamic>> _fetchData() async {
-    final response = await http.get(Uri.parse(
-        "https://localhost:5001/api/tocorsi?club=836191a6-7e03-4ce9-a981-fe0eeba646f6&day=2023-03-07T21%3A52%3A24%2B01%3A00&week=10&mine=false"));
-    if (response.statusCode == 200) {
-      final jsonData = json.decode(response.body);
-      print(jsonData); // print the JSON data to the console
-      return jsonData;
-    } else {
-      throw Exception('Failed to load data');
-    }
-  }*/
-
   Future<List<dynamic>> _fetchData() async {
     final String jsonData = await rootBundle.loadString('data/tocorsi.json');
     final List<dynamic> data = json.decode(jsonData);
     return data;
+  }
+
+  DateTime getDateTime(int year, int weekNumber, int dayOfWeek) {
+    // Calculate the first day of the given year
+    DateTime firstDayOfYear = DateTime(year, 1, 1);
+
+    // Calculate the day of the week of the first day of the year (0 = Monday, 6 = Sunday)
+    int firstDayOfWeek = firstDayOfYear.weekday;
+
+    // Calculate the number of days between the first day of the year and the first day of the week
+    int offset = (dayOfWeek - firstDayOfWeek + 7) % 7;
+
+    // Calculate the date of the first day of the given week
+    DateTime firstDayOfWeekDate =
+        firstDayOfYear.add(Duration(days: offset + (weekNumber - 1) * 7));
+
+    return firstDayOfWeekDate;
   }
 
   @override
@@ -50,6 +57,18 @@ class _MyListWidgetState extends State<MyListWidget> {
           child: ListView.builder(
             itemCount: _data.length,
             itemBuilder: (context, index) {
+              int dayOfWeek = _data[index]['giorno'];
+              String timestamp = _data[index]['ora'];
+              int weekNumber = _data[index]['week'];
+              int year = DateTime.now().year;
+              DateTime dateTime = getDateTime(year, weekNumber, dayOfWeek);
+              List<String> timeParts = timestamp.split(':');
+              int hour = int.parse(timeParts[0]);
+              int minute = int.parse(timeParts[1]);
+              int second = int.parse(timeParts[2]);
+              dateTime = dateTime
+                  .add(Duration(hours: hour, minutes: minute, seconds: second));
+
               return Container(
                 padding: EdgeInsets.all(8.0),
                 child: Container(
@@ -81,7 +100,7 @@ class _MyListWidgetState extends State<MyListWidget> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 16.0, horizontal: 24.0),
                         child: Text(
-                          _data[index]['ORARIO'],
+                          DateFormat('y MMMM dd H:mm').format(dateTime),
                           style: TextStyle(fontSize: 16.0),
                         ),
                       ),
