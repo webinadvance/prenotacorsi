@@ -78,7 +78,7 @@ class _MyListWidgetState extends State<MyListWidget> {
                                 Text(
                                   _data[index]['corso'],
                                   style:
-                                      Theme.of(context).textTheme.headlineSmall,
+                                      Theme.of(context).textTheme.displaySmall,
                                 ),
                                 const SizedBox(height: 10),
                                 Text(
@@ -103,25 +103,32 @@ class _MyListWidgetState extends State<MyListWidget> {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            IconButton(
-                              onPressed: () {
-                                // Add your first button's onPress action here
-                              },
-                              icon: const Icon(Icons.add_shopping_cart),
-                              padding: const EdgeInsets.all(10.0),
-                              tooltip: "prenota",
+                            Expanded(
+                              child: Text(
+                                "Questo corso di yoga è progettato per aiutare gli studenti a sviluppare una pratica di yoga completa, bilanciando il corpo, la mente e lo spirito. Durante le lezioni, gli studenti impareranno tecniche di respirazione, posture di yoga e meditazione per migliorare la flessibilità, la forza, la concentrazione e il benessere generale. Il corso si adatta alle esigenze di tutti i livelli di esperienza, dai principianti ai praticanti avanzati, e aiuta a ridurre lo stress e ad aumentare la consapevolezza del proprio corpo. Con l'obiettivo di creare uno spazio sicuro e inclusivo per tutti, il corso promuove l'autocura e l'autoesplorazione attraverso la pratica di yoga.",
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
                             ),
-                            SizedBox(width: 16.0),
-                            // Add some horizontal spacing between the buttons
-                            IconButton(
-                              onPressed: () {
-                                // Add your second button's onPress action here
-                              },
-                              icon: const Icon(Icons.favorite),
-                              padding: const EdgeInsets.all(10.0),
-                              tooltip: "favoriti",
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.add_shopping_cart),
+                                  padding: const EdgeInsets.all(10.0),
+                                  tooltip: "prenota",
+                                ),
+                                SizedBox(width: 16.0),
+                                IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.favorite),
+                                  padding: const EdgeInsets.all(10.0),
+                                  tooltip: "favoriti",
+                                ),
+                              ],
                             ),
                           ],
                         ),

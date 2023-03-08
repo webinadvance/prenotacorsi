@@ -35,7 +35,8 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData.from(
           colorScheme: ColorScheme.dark(),
-          textTheme: TextTheme(),
+          textTheme: TextTheme()
+              .copyWith(displaySmall: TextStyle(fontWeight: FontWeight.bold)),
         ).copyWith(
           buttonTheme: ButtonThemeData(),
           elevatedButtonTheme: ElevatedButtonThemeData(
