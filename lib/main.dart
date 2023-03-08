@@ -37,10 +37,11 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.dark(),
           textTheme: TextTheme(),
         ).copyWith(
+          buttonTheme: ButtonThemeData(),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                    (states) {
+                (states) {
                   if (states.contains(MaterialState.pressed)) {
                     return Colors.deepOrange;
                   } else {

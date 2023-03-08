@@ -78,12 +78,12 @@ class _MyListWidgetState extends State<MyListWidget> {
                                 Text(
                                   _data[index]['corso'],
                                   style:
-                                      Theme.of(context).textTheme.titleMedium,
+                                      Theme.of(context).textTheme.headlineSmall,
                                 ),
+                                const SizedBox(height: 10),
                                 Text(
-                                  _data[index]['trainer'],
-                                  style:
-                                      Theme.of(context).textTheme.titleMedium,
+                                  _data[index]['trainer'].toUpperCase(),
+                                  style: Theme.of(context).textTheme.labelSmall,
                                 ),
                               ],
                             ),
@@ -92,7 +92,7 @@ class _MyListWidgetState extends State<MyListWidget> {
                         Padding(
                           padding: const EdgeInsets.all(16),
                           child: Text(
-                            DateFormat('y MMMM dd H:mm').format(dateTime),
+                            DateFormat('MMM dd H:mm').format(dateTime),
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                         ),
@@ -100,13 +100,32 @@ class _MyListWidgetState extends State<MyListWidget> {
                     ),
                     trailing: Icon(Icons.expand_more),
                     children: <Widget>[
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          // Add your button's onPress action here
-                        },
-                        icon: Icon(Icons.book_online),
-                        label: Text('prenota'),
-                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                // Add your first button's onPress action here
+                              },
+                              icon: const Icon(Icons.add_shopping_cart),
+                              padding: const EdgeInsets.all(10.0),
+                              tooltip: "prenota",
+                            ),
+                            SizedBox(width: 16.0),
+                            // Add some horizontal spacing between the buttons
+                            IconButton(
+                              onPressed: () {
+                                // Add your second button's onPress action here
+                              },
+                              icon: const Icon(Icons.favorite),
+                              padding: const EdgeInsets.all(10.0),
+                              tooltip: "favoriti",
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
