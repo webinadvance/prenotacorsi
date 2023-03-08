@@ -11,7 +11,8 @@ class _MyListWidgetState extends State<MyListWidget> {
   List<dynamic> _data = [];
 
   Future<List<dynamic>> _fetchData() async {
-    final response = await http.get(Uri.parse("https://localhost:5001/api/tocorsi?club=836191a6-7e03-4ce9-a981-fe0eeba646f6&day=2023-03-07T21%3A52%3A24%2B01%3A00&week=10&mine=false"));
+    final response = await http.get(Uri.parse(
+        "https://localhost:5001/api/tocorsi?club=836191a6-7e03-4ce9-a981-fe0eeba646f6&day=2023-03-07T21%3A52%3A24%2B01%3A00&week=10&mine=false"));
     if (response.statusCode == 200) {
       final jsonData = json.decode(response.body);
       print(jsonData); // print the JSON data to the console

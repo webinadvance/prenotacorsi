@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:prenotacorsi/store.dart';
-import 'package:prenotacorsi/widgets/data_table.dart';
+import 'package:prenotacorsi/widgets/home_page.dart';
 import 'package:prenotacorsi/widgets/list.dart';
 import 'package:prenotacorsi/widgets/login_page.dart';
 import 'package:redux/redux.dart';
@@ -34,11 +34,11 @@ class MyApp extends StatelessWidget {
           colorScheme: theme.colorScheme.copyWith(
               primary: Colors.deepPurple, secondary: Colors.orange),
         ),*/
-        home: DataTableScreen(),
+        home: const HomePage(),
         routes: {
           '/login': (context) => LoginPage(),
           '/list': (context) => MyListWidget(),
-          '/datatable': (context) => DataTableScreen(),
+          '/datatable': (context) => HomePage(),
         },
       ),
     );
