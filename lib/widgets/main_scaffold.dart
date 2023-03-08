@@ -14,7 +14,7 @@ class MainScaffold extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      drawer: const AppDrawer(),
+      endDrawer: const AppDrawer(),
       body: body,
     );
   }
