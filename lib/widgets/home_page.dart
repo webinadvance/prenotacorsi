@@ -17,7 +17,10 @@ class HomePage extends StatelessWidget {
             Navigator.pushNamed(context, '/list');
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Theme.of(context).colorScheme.secondary,
+            backgroundColor: Theme
+                .of(context)
+                .colorScheme
+                .secondary,
           ),
         ),
       ),

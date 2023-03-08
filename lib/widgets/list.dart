@@ -22,16 +22,9 @@ class _MyListWidgetState extends State<MyListWidget> {
   }
 
   DateTime getDateTime(int year, int weekNumber, int dayOfWeek) {
-    // Calculate the first day of the given year
     DateTime firstDayOfYear = DateTime(year, 1, 1);
-
-    // Calculate the day of the week of the first day of the year (0 = Monday, 6 = Sunday)
     int firstDayOfWeek = firstDayOfYear.weekday;
-
-    // Calculate the number of days between the first day of the year and the first day of the week
     int offset = (dayOfWeek - firstDayOfWeek + 7) % 7;
-
-    // Calculate the date of the first day of the given week
     DateTime firstDayOfWeekDate =
         firstDayOfYear.add(Duration(days: offset + (weekNumber - 1) * 7));
 
@@ -52,7 +45,7 @@ class _MyListWidgetState extends State<MyListWidget> {
   Widget build(BuildContext context) {
     return AuthenticatedWidget(
       child: MainScaffold(
-        title: "Lista",
+        title: "Corsi",
         body: Material(
           child: ListView.builder(
             itemCount: _data.length,
@@ -70,44 +63,37 @@ class _MyListWidgetState extends State<MyListWidget> {
                   .add(Duration(hours: hour, minutes: minute, seconds: second));
 
               return Container(
-                padding: EdgeInsets.all(8.0),
-                child: Container(
-                  child: Material(
-                    //color: Theme.of(context).colorScheme.background,
-                    elevation: 4.0,
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 16.0, horizontal: 24.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  _data[index]['corso'],
-                                  style:
-                                      Theme.of(context).textTheme.titleMedium,
-                                ),
-                                Text(
-                                  _data[index]['trainer'],
-                                  style:
-                                      Theme.of(context).textTheme.titleMedium,
-                                ),
-                              ],
-                            ),
+                padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+                child: Material(
+                  elevation: 4.0,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                _data[index]['corso'],
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              Text(
+                                _data[index]['trainer'],
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                            ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 24.0),
-                          child: Text(
-                            DateFormat('y MMMM dd H:mm').format(dateTime),
-                            style: Theme.of(context).textTheme.titleMedium,
-                          ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Text(
+                          DateFormat('y MMMM dd H:mm').format(dateTime),
+                          style: Theme.of(context).textTheme.titleMedium,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               );
