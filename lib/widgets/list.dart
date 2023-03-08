@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import 'auth_widget.dart';
+
 class MyListWidget extends StatefulWidget {
   @override
   _MyListWidgetState createState() => _MyListWidgetState();
@@ -34,19 +36,21 @@ class _MyListWidgetState extends State<MyListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('My List'),
-      ),
-      body: Material(
-        child: ListView.builder(
-          itemCount: _data.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(_data[index]['trainer']),
-              subtitle: Text(_data[index]['club_name']),
-            );
-          },
+    return AuthenticatedWidget(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('My List'),
+        ),
+        body: Material(
+          child: ListView.builder(
+            itemCount: _data.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(_data[index]['trainer']),
+                subtitle: Text(_data[index]['club_name']),
+              );
+            },
+          ),
         ),
       ),
     );

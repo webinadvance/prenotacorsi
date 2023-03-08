@@ -11,9 +11,9 @@ class HomePage extends StatelessWidget {
       title: "home_page",
       body: Center(
         child: ElevatedButton(
-          child: Text("Login2"),
+          child: Text("list"),
           onPressed: () {
-            Navigator.pushNamed(context, '/login');
+            Navigator.pushNamed(context, '/list');
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Theme.of(context).colorScheme.secondary,
