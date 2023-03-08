@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'drawer.dart';
 
 class MainScaffold extends StatelessWidget {
   final Widget body;
-  final String title; // new named parameter for the title
+  final String title;
+
   const MainScaffold({required this.body, required this.title, Key? key})
       : super(key: key);
 
@@ -13,7 +12,7 @@ class MainScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title), // use the title parameter here
+        title: Text(title),
       ),
       drawer: const AppDrawer(),
       body: body,
