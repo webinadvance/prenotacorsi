@@ -93,7 +93,7 @@ class _MyListWidgetState extends State<MyListWidget> {
                           padding: const EdgeInsets.all(16),
                           child: Text(
                             DateFormat('MMM dd H:mm').format(dateTime),
-                            style: Theme.of(context).textTheme.titleMedium,
+                            style: Theme.of(context).textTheme.labelLarge,
                           ),
                         ),
                       ],
