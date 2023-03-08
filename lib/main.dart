@@ -29,11 +29,12 @@ class MyApp extends StatelessWidget {
     return StoreProvider(
       store: store,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-/*        theme: theme.copyWith(
+        theme: theme.copyWith(
           colorScheme: theme.colorScheme.copyWith(
-              primary: Colors.deepPurple, secondary: Colors.orange),
-        ),*/
+              primary: Colors.deepOrange, secondary: Colors.black),
+        ),
         home: const HomePage(),
         routes: {
           '/login': (context) => LoginPage(),

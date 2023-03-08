@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import 'auth_widget.dart';
+import 'main_scaffold.dart';
 
 class MyListWidget extends StatefulWidget {
   @override
@@ -37,10 +38,8 @@ class _MyListWidgetState extends State<MyListWidget> {
   @override
   Widget build(BuildContext context) {
     return AuthenticatedWidget(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('My List'),
-        ),
+      child: MainScaffold(
+        title: "list",
         body: Material(
           child: ListView.builder(
             itemCount: _data.length,

@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
-      title: "home_page",
+      title: "prenotacorsi.com",
       body: Center(
         child: ElevatedButton(
           child: Text("list"),

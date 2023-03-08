@@ -11,7 +11,7 @@ class AppDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
+              color: Theme.of(context).colorScheme.primary,
             ),
             child: Text(
               'Drawer Header',
@@ -25,7 +25,6 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () {
-              // close the drawer and navigate to the Settings page
               Navigator.pop(context);
               Navigator.pushNamed(context, '/settings');
             },
@@ -34,7 +33,6 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.help),
             title: Text('Help'),
             onTap: () {
-              // close the drawer and navigate to the Help page
               Navigator.pop(context);
               Navigator.pushNamed(context, '/help');
             },
