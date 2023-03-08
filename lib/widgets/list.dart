@@ -100,9 +100,13 @@ class _MyListWidgetState extends State<MyListWidget> {
                     ),
                     trailing: Icon(Icons.expand_more),
                     children: <Widget>[
-                      Container(
-                        child: Text("aaaaa"),
-                      )
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          // Add your button's onPress action here
+                        },
+                        icon: Icon(Icons.book_online),
+                        label: Text('prenota'),
+                      ),
                     ],
                   ),
                 ),

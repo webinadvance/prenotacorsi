@@ -36,6 +36,20 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.from(
           colorScheme: ColorScheme.dark(),
           textTheme: TextTheme(),
+        ).copyWith(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                    (states) {
+                  if (states.contains(MaterialState.pressed)) {
+                    return Colors.deepOrange;
+                  } else {
+                    return Colors.deepOrange;
+                  }
+                },
+              ),
+            ),
+          ),
         ),
         home: const HomePage(),
         routes: {
