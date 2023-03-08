@@ -66,33 +66,43 @@ class _MyListWidgetState extends State<MyListWidget> {
                 padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                 child: Material(
                   elevation: 4.0,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                _data[index]['corso'],
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                              Text(
-                                _data[index]['trainer'],
-                                style: Theme.of(context).textTheme.titleMedium,
-                              ),
-                            ],
+                  child: ExpansionTile(
+                    title: Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  _data[index]['corso'],
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                                Text(
+                                  _data[index]['trainer'],
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(16),
-                        child: Text(
-                          DateFormat('y MMMM dd H:mm').format(dateTime),
-                          style: Theme.of(context).textTheme.titleMedium,
+                        Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Text(
+                            DateFormat('y MMMM dd H:mm').format(dateTime),
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
                         ),
-                      ),
+                      ],
+                    ),
+                    trailing: Icon(Icons.expand_more),
+                    children: <Widget>[
+                      Container(
+                        child: Text("aaaaa"),
+                      )
                     ],
                   ),
                 ),
