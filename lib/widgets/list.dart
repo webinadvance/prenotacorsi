@@ -72,39 +72,40 @@ class _MyListWidgetState extends State<MyListWidget> {
               return Container(
                 padding: EdgeInsets.all(8.0),
                 child: Container(
-                  color: Theme.of(context).splashColor,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 16.0, horizontal: 24.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                _data[index]['corso'],
-                                style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                _data[index]['trainer'],
-                                style: TextStyle(fontSize: 16.0),
-                              ),
-                            ],
+                  child: Material(
+                    //color: Theme.of(context).colorScheme.background,
+                    elevation: 4.0,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 16.0, horizontal: 24.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  _data[index]['corso'],
+                                  style: Theme.of(context).textTheme.titleMedium,
+                                ),
+                                Text(
+                                  _data[index]['trainer'],
+                                  style: Theme.of(context).textTheme.titleMedium,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 16.0, horizontal: 24.0),
-                        child: Text(
-                          DateFormat('y MMMM dd H:mm').format(dateTime),
-                          style: TextStyle(fontSize: 16.0),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 24.0),
+                          child: Text(
+                            DateFormat('y MMMM dd H:mm').format(dateTime),
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               );

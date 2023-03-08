@@ -10,13 +10,12 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            decoration: BoxDecoration(
+ /*           decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primary,
-            ),
+            ),*/
             child: Text(
-              'Drawer Header',
+              'Prenotacorsi.com',
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 24,
               ),
             ),

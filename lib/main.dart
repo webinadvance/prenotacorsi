@@ -20,8 +20,6 @@ void main() async {
   runApp(MyApp());
 }
 
-final ThemeData theme = ThemeData();
-
 class MyApp extends StatelessWidget {
   final store = Store<AppState>(
     appReducer,
@@ -35,9 +33,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: theme.copyWith(
-          colorScheme: theme.colorScheme
-              .copyWith(primary: Colors.deepOrange, secondary: Colors.black),
+        theme: ThemeData.from(
+          colorScheme: ColorScheme.dark(),
+          textTheme: TextTheme(),
         ),
         home: const HomePage(),
         routes: {
