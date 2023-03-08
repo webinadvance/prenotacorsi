@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/services.dart';
 
 import 'auth_widget.dart';
 import 'main_scaffold.dart';
@@ -13,7 +13,7 @@ class MyListWidget extends StatefulWidget {
 class _MyListWidgetState extends State<MyListWidget> {
   List<dynamic> _data = [];
 
-  Future<List<dynamic>> _fetchData() async {
+/*  Future<List<dynamic>> _fetchData() async {
     final response = await http.get(Uri.parse(
         "https://localhost:5001/api/tocorsi?club=836191a6-7e03-4ce9-a981-fe0eeba646f6&day=2023-03-07T21%3A52%3A24%2B01%3A00&week=10&mine=false"));
     if (response.statusCode == 200) {
@@ -23,6 +23,12 @@ class _MyListWidgetState extends State<MyListWidget> {
     } else {
       throw Exception('Failed to load data');
     }
+  }*/
+
+  Future<List<dynamic>> _fetchData() async {
+    final String jsonData = await rootBundle.loadString('data/tocorsi.json');
+    final List<dynamic> data = json.decode(jsonData);
+    return data;
   }
 
   @override
@@ -44,9 +50,44 @@ class _MyListWidgetState extends State<MyListWidget> {
           child: ListView.builder(
             itemCount: _data.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(_data[index]['trainer']),
-                subtitle: Text(_data[index]['club_name']),
+              return Container(
+                padding: EdgeInsets.all(8.0),
+                child: Container(
+                  color: Colors.grey,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 16.0, horizontal: 24.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                _data[index]['corso'],
+                                style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                _data[index]['trainer'],
+                                style: TextStyle(fontSize: 16.0),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 16.0, horizontal: 24.0),
+                        child: Text(
+                          _data[index]['club_name'],
+                          style: TextStyle(fontSize: 16.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               );
             },
           ),
