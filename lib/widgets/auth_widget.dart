@@ -21,6 +21,7 @@ class AuthenticatedWidget extends StatelessWidget {
         }
         if (!snapshot.hasData || snapshot.data == null) {
           // User is not authenticated, redirect to login page
+          return child;
           return LoginPage();
         }
         // User is authenticated, show the child widget

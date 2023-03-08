@@ -53,7 +53,7 @@ class _MyListWidgetState extends State<MyListWidget> {
               return Container(
                 padding: EdgeInsets.all(8.0),
                 child: Container(
-                  color: Colors.grey,
+                  color: Theme.of(context).splashColor,
                   child: Row(
                     children: [
                       Expanded(
@@ -81,7 +81,7 @@ class _MyListWidgetState extends State<MyListWidget> {
                         padding: const EdgeInsets.symmetric(
                             vertical: 16.0, horizontal: 24.0),
                         child: Text(
-                          _data[index]['club_name'],
+                          _data[index]['ORARIO'],
                           style: TextStyle(fontSize: 16.0),
                         ),
                       ),
