@@ -1,11 +1,11 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 import 'auth_widget.dart';
 import 'main_scaffold.dart';
-
-import 'package:intl/intl.dart';
 
 class MyListWidget extends StatefulWidget {
   @override
@@ -48,6 +48,7 @@ class _MyListWidgetState extends State<MyListWidget> {
   Widget build(BuildContext context) {
     return AuthenticatedWidget(
       child: MainScaffold(
+        isDrawerVisible: true,
         title: "Corsi",
         body: Material(
           child: Column(
