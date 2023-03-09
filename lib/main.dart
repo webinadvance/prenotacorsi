@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:prenotacorsi/store.dart';
-import 'package:prenotacorsi/widgets/home_page.dart';
 import 'package:prenotacorsi/widgets/list.dart';
 import 'package:prenotacorsi/widgets/login_page.dart';
 import 'package:redux/redux.dart';
@@ -33,11 +33,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData.from(
-          colorScheme: ColorScheme.dark(),
-          textTheme: TextTheme()
-              .copyWith(displaySmall: TextStyle(fontWeight: FontWeight.bold)),
-        ).copyWith(
+        theme: ThemeData(
+                fontFamily: GoogleFonts.bebasNeue().fontFamily,
+                colorScheme: ColorScheme.light())
+            .copyWith(
           buttonTheme: ButtonThemeData(),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
@@ -53,11 +52,10 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: const HomePage(),
+        home: MyListWidget(),
         routes: {
           '/login': (context) => LoginPage(),
           '/list': (context) => MyListWidget(),
-          '/datatable': (context) => HomePage(),
         },
         locale: Locale('it', 'IT'),
       ),

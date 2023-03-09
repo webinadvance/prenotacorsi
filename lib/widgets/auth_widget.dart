@@ -14,6 +14,7 @@ class AuthenticatedWidget extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
+        print(snapshot.data);
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
             child: CircularProgressIndicator(),
@@ -21,8 +22,7 @@ class AuthenticatedWidget extends StatelessWidget {
         }
         if (!snapshot.hasData || snapshot.data == null) {
           // User is not authenticated, redirect to login page
-          return child;
-          return LoginPage();
+          LoginPage();
         }
         // User is authenticated, show the child widget
         return child;
